@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="nav-brand">
+            <img src="./assets/images/logo.png" class="me-3" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">Home</a>
+                </li>
+               
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-secondary mx-2" href="#register" routerLinkActive="active" routerLink="/register">
+                        Create Account
+                    </a>
+                </li>    
+
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-secondary" href="#login" routerLinkActive="active" routerLink="/login">
+                        Login
+                    </a>
+                </li>    
+
+            </ul>
+        </div>
+    </div>
+</nav>
