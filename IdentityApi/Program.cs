@@ -1,3 +1,4 @@
+using IdentityApi;
 using IdentityApi.Data;
 using IdentityApi.Models;
 using IdentityApi.Services;
@@ -29,6 +30,16 @@ builder.Services.AddDbContext<Context>(options =>{
 
 //Be able to inject jwt services class inside our controllers
 builder.Services.AddScoped<JWTServices>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins", builder =>
+    {
+        builder.WithOrigins("http://localhost:4200")
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials();
+    });
+});
 
 //Define Identity core service
 builder.Services.AddIdentityCore<User>(options =>
@@ -72,7 +83,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddCors();
+
+
+// builder.Services.AddCors();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
@@ -94,12 +107,17 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 
 var app = builder.Build();
 
+var emailConfig = builder.Configuration
+    .GetSection("EmailConfiguration")
+    .Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig);
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 
-app.UseCors(opt =>
+/*app.UseCors(opt =>
 {
     opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins(builder.Configuration["JWT:ClientUrl"]);
-});
+});*/
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -108,6 +126,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowSpecificOrigins");
+app.UseRouting();
 //app.UseHttpsRedirection();
 
 //adding authentication in to our pipeline and this should come before use authorization

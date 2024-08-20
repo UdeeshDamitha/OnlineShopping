@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../account.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
-import { response } from 'express';
-import { error } from 'console';
+
 import { CommonModule } from '@angular/common';
+import { SharedService } from '../../shared/shared.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,11 +15,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
+
 export class RegisterComponent implements OnInit {
+  
   registerForm: FormGroup = new FormGroup({})
   submitted = false;
   errorMessages : string[] = [];
-  constructor(private accountService:AccountService, private formBuilder:FormBuilder){
+  constructor(private accountService:AccountService , private sharedService: SharedService, private formBuilder:FormBuilder, 
+    private router: Router){
 
   }
 
@@ -39,16 +43,23 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
     this.errorMessages = [];
 
-   // if(this.registerForm.valid){
+    if(this.registerForm.valid){
       this.accountService.register(this.registerForm.value).subscribe({
-        next: (response) =>{
+        next: (response:any) =>{
+          console.log("AA",response);
+          this.sharedService.showNotification(true, response.value.title, response.value.message);
+          this.router.navigateByUrl('/account/login')
           console.log("ss",response);
         },
         error: error => {
-          console.log("ee",error);
+          if(error.error.error){
+            this.errorMessages = error.error.error;
+          } else{
+            this.errorMessages.push(error.error);
+          }
         }
       })
-   // }  
+    }  
   
   }
 

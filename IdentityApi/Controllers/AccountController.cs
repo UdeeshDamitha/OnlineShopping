@@ -54,7 +54,8 @@ namespace IdentityApi.Controllers
         {
             if (await CheckEmailExistsAsync(model.Email)) 
             {
-                return BadRequest($"An exist account is using {model.Email}, email address, please try with onother email");
+              //  return BadRequest($"An existing account is using {model.Email}, email addres. Please try with another email address");
+                return BadRequest(new JsonResult(new { title = "Account Created Failed", message = $"An existing account is using {model.Email}, email addres. Please try with another email address" }));
             }
 
             var userToAdd = new User
@@ -69,7 +70,7 @@ namespace IdentityApi.Controllers
             var result = await _userManager.CreateAsync(userToAdd, model.Password);
             if(!result.Succeeded) return BadRequest(result.Errors);
 
-            return Ok("Your account has been created");
+            return Ok(new JsonResult(new { title = "Account Create", message = "Your account has been created" }));
         }
 
         #region Private Helper Methods

@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace IdentityApi.Data.Migrations
+namespace IdentityApi.Migrations
 {
     /// <inheritdoc />
-    public partial class AddingUserToDatabase : Migration
+    public partial class CreateTabales : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

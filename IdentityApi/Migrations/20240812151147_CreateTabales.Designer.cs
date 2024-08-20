@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace IdentityApi.Data.Migrations
+namespace IdentityApi.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240114060339_AddingUserToDatabase")]
-    partial class AddingUserToDatabase
+    [Migration("20240812151147_CreateTabales")]
+    partial class CreateTabales
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

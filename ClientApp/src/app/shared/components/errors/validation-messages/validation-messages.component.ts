@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-validation-messages',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './validation-messages.component.html',
   styleUrl: './validation-messages.component.css'
 })
 export class ValidationMessagesComponent {
-
+ @Input() errorMessages: string[] | undefined;
 }
