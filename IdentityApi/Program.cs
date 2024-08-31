@@ -30,6 +30,7 @@ builder.Services.AddDbContext<Context>(options =>{
 
 //Be able to inject jwt services class inside our controllers
 builder.Services.AddScoped<JWTServices>();
+builder.Services.AddScoped<EmailService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", builder =>
@@ -85,6 +86,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 
 
+
 // builder.Services.AddCors();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
@@ -107,11 +109,11 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 
 var app = builder.Build();
 
-var emailConfig = builder.Configuration
-    .GetSection("EmailConfiguration")
-    .Get<EmailConfiguration>();
-builder.Services.AddSingleton(emailConfig);
-builder.Services.AddScoped<IEmailSender, EmailSender>();
+//var emailConfig = builder.Configuration
+//    .GetSection("EmailConfiguration")
+//    .Get<EmailConfiguration>();
+//builder.Services.AddSingleton(emailConfig);
+//builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 
 /*app.UseCors(opt =>

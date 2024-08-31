@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityApi", "IdentityApi\IdentityApi.csproj", "{6C96AFFC-2E98-4CC9-8984-8E48D66F872C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{9E158AB1-2D99-428A-81DF-549893E2A7BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{06B7F196-78D4-4887-9EE8-8A374F851EB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{6C96AFFC-2E98-4CC9-8984-8E48D66F872C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C96AFFC-2E98-4CC9-8984-8E48D66F872C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C96AFFC-2E98-4CC9-8984-8E48D66F872C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E158AB1-2D99-428A-81DF-549893E2A7BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E158AB1-2D99-428A-81DF-549893E2A7BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E158AB1-2D99-428A-81DF-549893E2A7BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E158AB1-2D99-428A-81DF-549893E2A7BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B7F196-78D4-4887-9EE8-8A374F851EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B7F196-78D4-4887-9EE8-8A374F851EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B7F196-78D4-4887-9EE8-8A374F851EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B7F196-78D4-4887-9EE8-8A374F851EB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
