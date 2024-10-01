@@ -43,7 +43,7 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/sample-page/sample-page.component')
-      }
+      }    
     ]
   },
   {
@@ -61,6 +61,18 @@ const routes: Routes = [
         path: 'auth/signin',
         canActivate: [guestGuard],
         loadComponent: () => import('./pages/authentication/sign-in/sign-in.component')
+      },
+      {
+        path: 'auth/confirm-email',
+        canActivate: [guestGuard],
+        //component: ConfirmEmailComponent,
+        loadComponent: () => import('./pages/authentication/confirm-email/confirm-email.component')
+      },
+      {
+        path: 'auth/send-email/:mode',
+        canActivate: [guestGuard],
+        //component: ConfirmEmailComponent,
+        loadComponent: () => import('./pages/authentication/send-email/send-email.component')
       }
     ]
   }

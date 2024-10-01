@@ -1,0 +1,34 @@
+<div class="text-center text-white text-bg-info p-3 h3 container-fluid">Email Confimation</div>
+
+@if(success){
+  <div  class="alert h5 text-success text-center" >
+    {{successMessege}}
+  </div>
+  <div class="container text-center" >
+    <a class="btn btn-primary" routerLink="/auth/signin">
+        Login
+    </a>
+  </div>
+}
+@if(!success){
+  
+  @if(errorMesseges==['Your email was confirmed before. Please login to your account']){
+    <div  class="text-center h5 error text-danger">
+      {{ errorMesseges }}
+    </div>
+    <div class="container text-center" >
+      <a class="btn btn-primary" routerLink="/auth/signin">
+          Login
+      </a>
+    </div>
+  }
+  @else{
+    <div  class="text-center h5 error text-danger">
+      Connection failed to the server.
+    </div>
+    <div class="container text-center"> 
+      <a class="btn btn-link" (click)="resendEmailConfirmationLink()">
+          Click here to resend email confirmation link
+      </a>
+    </div>}
+}

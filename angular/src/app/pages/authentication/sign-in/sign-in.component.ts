@@ -1,5 +1,5 @@
 // angular import
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -19,25 +19,39 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 export default class SignInComponent {
   form : FormGroup;
   authService = inject(AuthService);
-  
+  errorMesseges : string [] = [];
+  submitted = false;
 
   constructor(private fb:FormBuilder){
     this.form = this.fb.group({
-      username : new FormControl('',[Validators.required, Validators.email]),
-      password : new FormControl('',[Validators.required])
+      username : new FormControl('',[Validators.required, Validators.pattern('^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$')]),
+      password : new FormControl('',[Validators.required, Validators.minLength(6),Validators.maxLength(12) ])
     })
   }
 
-  
 
   onSubmit(){
+    this.submitted = true;
+    this.errorMesseges = [];
+
     if(this.form.valid){
-      console.log(this.form.value);
       this.authService.login(this.form.value).subscribe({
         next: (response) =>{
           console.log(response);
+          
+        },
+        error: (error: any) => {
+         console.log('Login failed2', error);
+          
+          this.errorMesseges = error;
+        /*  if (error.error.errors) {
+            this.errorMesseges = error;
+          } else {
+           // this.errorMesseges.push(error.error);
+          }*/
         }
       })
     }
   }
+  resendEmailConfirmationLink(){}
 }

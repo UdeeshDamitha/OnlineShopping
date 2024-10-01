@@ -164,6 +164,15 @@ namespace IdentityApi.Controllers
 
         }
 
+        [HttpGet("chek-email")]
+        public async Task<bool> CheckEmailAsync(string email)
+        {
+            if (string.IsNullOrEmpty(email)) throw new ArgumentNullException("email");
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null) { return false; }
+            else { return true; }
+        }
+
         [HttpPut("reset-password")]
         public async Task<IActionResult> ResetPassword(ResetPasswordDto model)
         {

@@ -24,3 +24,9 @@ export interface ApiResponse<T>{
     firstName : string;
     lastName : string;
 }
+
+export interface ConfirmEmail
+{
+    token: string;
+    email: string;
+}

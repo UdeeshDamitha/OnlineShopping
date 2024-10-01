@@ -203,7 +203,7 @@
   dependencies:
     "@angular-eslint/bundled-angular-compiler" "18.0.1"
 
-"@angular/animations@^18.0.5", "@angular/animations@18.0.5":
+"@angular/animations@^18.0.1", "@angular/animations@^18.0.5", "@angular/animations@18.0.5":
   version "18.0.5"
   resolved "https://registry.npmjs.org/@angular/animations/-/animations-18.0.5.tgz"
   integrity sha512-RYwlS+4I33beAWdzFFmaDPqXZN+r66qPzzMOk9LQguwF76eBJbykHniODalSLvjrY6Iz7CULavByYNpzq2TT7A==
@@ -308,7 +308,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^18.0.0", "@angular/forms@^18.0.5", "@angular/forms@>=9.0.0":
+"@angular/forms@^18.0.0", "@angular/forms@^18.0.1", "@angular/forms@^18.0.5", "@angular/forms@>=9.0.0":
   version "18.0.5"
   resolved "https://registry.npmjs.org/@angular/forms/-/forms-18.0.5.tgz"
   integrity sha512-nO7bN+nO2/czgKSvPx6ewqpfb8xXOyns06uovWpAXSH4jYoiZ6CHTHhOKrOL/3SRkhUV9u+EUXTTAOSBkS+OBA==
@@ -5376,6 +5376,13 @@ ng-apexcharts@^1.11.0:
   integrity sha512-bzZ2qMYpJJ1V/Yfp9eC5y7BuxrlZx4fc9ev9pNHW8qEs5B0yE5yW25WrLhoGTYsfeFZfiADWeAmZkceEiihpFw==
   dependencies:
     tslib "^2.0.0"
+
+ngx-bootstrap@^18.0.2:
+  version "18.0.2"
+  resolved "https://registry.npmjs.org/ngx-bootstrap/-/ngx-bootstrap-18.0.2.tgz"
+  integrity sha512-fmbLL4dCgPOTZxBMHpJFabHtOXM02b0atHW6queXbFnSouy5jC3UQ0tdcdD2k09H2x2aeRenMt6AcmPcwyoFSg==
+  dependencies:
+    tslib "^2.3.0"
 
 ngx-color-picker@^16.0.0:
   version "16.0.0"
